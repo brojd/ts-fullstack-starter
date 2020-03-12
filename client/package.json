@@ -6,12 +6,13 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack/webpack.config.dev.js",
     "build": "yarn run clean && cross-env NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "lint": "eslint --ext ts --ext tsx \"./src\""
   },
   "devDependencies": {
     "@types/react": "16.9.23",
     "@types/react-dom": "16.9.5",
-    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
     "@typescript-eslint/parser": "2.22.0",
     "cross-env": "7.0.2",
     "css-loader": "3.4.2",
@@ -19,9 +20,9 @@
     "eslint-config-prettier": "6.10.0",
     "eslint-config-react-app": "5.2.0",
     "eslint-loader": "3.0.3",
-    "eslint-plugin-flowtype": "^4.6.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.18.3",
     "eslint-plugin-react-hooks": "2.5.0",
     "file-loader": "5.1.0",

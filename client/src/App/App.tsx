@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <div>app</div>
+export default () => <div>app</div>;

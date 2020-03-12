@@ -3,5 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Dominik Broj",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "cd client && yarn lint && cd .."
+  },
+  "devDependencies": {
+    "husky": "4.2.3",
+    "pretty-quick": "2.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,scss,css,js,jsx}": [
+      "pretty-quick",
+      "yarn lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

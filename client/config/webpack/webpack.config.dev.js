@@ -1,6 +1,6 @@
-const merge = require('webpack-merge')
-const baseConfig = require('./webpack.config.base')
-const paths = require('../paths')
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.config.base');
+const paths = require('../paths');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
@@ -15,4 +15,4 @@ module.exports = merge(baseConfig, {
     stats: 'minimal',
     progress: true
   }
-})
+});
