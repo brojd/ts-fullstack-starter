@@ -1,0 +1,16 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dominik Broj",
+  "license": "MIT",
+  "scripts": {
+    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\""
+  },
+  "devDependencies": {
+    "cross-env": "7.0.2",
+    "eslint": "6.8.0",
+    "rimraf": "3.0.2",
+    "typescript": "3.8.3"
+  }
+}

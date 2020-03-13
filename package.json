@@ -4,8 +4,16 @@
   "main": "index.js",
   "author": "Dominik Broj",
   "license": "MIT",
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "private": true,
   "scripts": {
-    "lint": "cd client && yarn lint && cd .."
+    "dev": "concurrently -k -p \"[{name}]\" -n \"CLIENT,SERVER\" -c \"yellow.bold,cyan.bold\" \"cd client && yarn dev\" \"cd server && yarn dev\"",
+    "lint": "cd client && yarn lint && cd ../server && yarn lint && cd ../shared && yarn lint",
+    "clean-deps": "rimraf ./node_modules && rimraf client/node_modules && rimraf server/node_modules && rimraf shared/node_modules"
   },
   "devDependencies": {
     "husky": "4.2.3",
@@ -17,5 +25,8 @@
       "pre-commit": "pretty-quick --staged",
       "pre-push": "yarn lint"
     }
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0"
   }
 }

@@ -12,7 +12,6 @@ module.exports = merge(baseConfig, {
     port: 3000,
     hot: true,
     contentBase: paths.dist,
-    stats: 'minimal',
-    progress: true
+    stats: 'minimal'
   }
 });
