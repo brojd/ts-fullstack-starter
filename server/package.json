@@ -4,13 +4,15 @@
   "main": "app.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development tsc -w && nodemon dist/app.js",
-    "build": "tsc",
+    "serve": "node ./dist/app.js",
+    "dev": "cross-env NODE_ENV=development concurrently \"tsc --p ./tsconfig.json -w\" \"nodemon ./dist/app.js\"",
+    "build": "tsc --p ./tsconfig.json",
     "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\""
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.0",
-    "@types/express": "^4.17.3"
+    "@types/body-parser": "1.19.0",
+    "@types/express": "4.17.3",
+    "nodemon": "2.0.2"
   },
   "dependencies": {
     "express": "4.17.1",
