@@ -6,7 +6,7 @@ Easy to understand and customize to your needs without wasting time for writing 
 
 ## Why?
 
-Nowadays, it's a common choice to use TypeScript on both frontend and backend. What is great about such option is that we can benefit from having one repo, one dev and build process and possibility to share code and types between client and server.
+Nowadays, it's a common choice to use TypeScript on both frontend and backend. What is great about such option is that we can benefit from having one repo, one dev, build process and possibility to share code and types between client and server.
 
 However it takes time to set everything up according to modern approaches. This project aims to provide a robust and flexible boilerplate for everyone who wants to use custom configuration for TS fullstack project.
 
@@ -20,7 +20,7 @@ Conceptually, the project consists of 4 parts:
 
 - Client (your frontend app)
 - Server (your backend app)
-- Shared (code and types shared between Client and Server)
+- Shared (code, types and dependencies shared between Client and Server)
 - Root (everything outside client, server and shared folders - it pins everything into one piece)
 
 Files structure looks like this:
@@ -49,15 +49,65 @@ package.json (main npm scripts, husky hooks, yarn workspaces)
 prettierrc.js (prettier config common for client, server, shared)
 ```
 
+---
+
 ## Tech stack
 
 ### Client
+
+| Name               | Version | Usage                    |
+| ------------------ | ------- | ------------------------ |
+| Webpack            | 4.42.0  | Module bundler           |
+| Webpack Dev Server | 13.10.3 | Local development server |
+| React              | 16.13.0 | UI Library               |
+| Axios              | 0.19.2  | HTTP client              |
 
 ### Server
 
 ### General
 
-### Installing
+| Name       | Version | Usage        |
+| ---------- | ------- | ------------ |
+| TypeScript |         | JS superset  |
+| ESLint     |         | TS/JS linter |
+| Prettier   |         |
+| Husky      |         |
+| Yarn       |         |
+
+---
+
+## Usage
+
+### Quick start
+
+1. Clone / download the repo
+2. `cd ts-fullstack-starter && yarn`
+3. `yarn dev` to start development (see below all available commands)
+
+### Commands
+
+| Command      | Description |
+| ------------ | ----------- |
+| `yarn dev`   | aaa         |
+| `yarn build` | aaa         |
+| `yarn start` | aaa         |
+| `yarn lint`  | aaa         |
+
+### Git hooks
+
+What is triggered when:
+
+### Adding dependencies
+
+In order to add dependency which is:
+
+- client-specific: `cd client && yarn add yourDep`
+- server-specific: `cd server && yarn add yourDep`
+- shared between client and server: `cd shared && yarn add yourDep`
+
+### Deployment
+
+Just run `yarn start` on your remote server. It will build fullstack app and start the server.
 
 A step by step series of examples that tell you how to get a development env running
 
