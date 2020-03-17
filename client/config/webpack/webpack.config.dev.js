@@ -10,8 +10,21 @@ module.exports = merge(baseConfig, {
   devtool: 'inline-source-map',
   devServer: {
     port: 3000,
+    proxy: {
+      '/api': 'http://localhost:9000'
+    },
     hot: true,
     contentBase: paths.dist,
     stats: 'minimal'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|sass)$/,
+        loader: 'typed-css-modules-loader',
+        enforce: 'pre',
+        include: paths.appSrc
+      }
+    ]
   }
 });
