@@ -23,7 +23,7 @@ Easy to understand and customize to your needs without wasting time for writing 
 | `yarn dev`   | Starts concurrently Webpack Dev Server for serving Client app and runs backend app in development mode. Hot reloading for Client and live reloading for backend is set up. |
 | `yarn build` | Compiles backend app, then prepares frontend bundle and put it in server's public folder to be served. Run it before starting the prod server.                             |
 | `yarn start` | Runs server in production mode                                                                                                                                             |
-| `yarn lint`  | Checks TS compilation and ESLitn errors of Client, Server and Shared parts of your fullstack app                                                                           |
+| `yarn lint`  | Checks TS compilation and ESLint errors of Client, Server and Shared parts of your fullstack app                                                                           |
 | `yarn test`  | Runs Jest against Client, Server and Shared parts of your fullstack app                                                                                                    |
 
 ### Installing dependencies
