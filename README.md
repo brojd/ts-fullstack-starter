@@ -77,7 +77,7 @@ prettierrc.js (prettier config common for client, server, shared)
 | Name    | Version | Usage |
 | ------- | ------- | ----- |
 | Express |         |       |
-| ..      |         |       |
+|         |         |       |
 | ..      |         |
 | ..      |         |
 | ..      |         |

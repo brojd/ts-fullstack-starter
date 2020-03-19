@@ -15,6 +15,8 @@
     "build": "cd server && yarn build && cd ../client && yarn build && cd..",
     "dev": "concurrently -k -p \"[{name}]\" -n \"CLIENT,SERVER\" -c \"yellow.bold,cyan.bold\" \"cd client && yarn dev\" \"cd server && yarn dev\"",
     "lint": "cd client && yarn lint && cd ../server && yarn lint && cd ../shared && yarn lint",
+    "test": "cd client && yarn test && cd ../server && yarn test && cd ../shared && yarn test",
+    "test-watch": "concurrently -k -p \"[{name}]\" -n \"CLIENT,SERVER,SHARED\" -c \"yellow.bold,cyan.bold,blue.bold\" \"cd client && yarn test --watch\" \"cd server && yarn test --watch\" \"cd shared && yarn test --watch\"",
     "clean-deps": "rimraf ./node_modules && rimraf client/node_modules && rimraf server/node_modules && rimraf shared/node_modules"
   },
   "devDependencies": {
@@ -25,7 +27,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
-      "pre-push": "yarn lint"
+      "pre-push": "yarn lint && yarn test"
     }
   },
   "dependencies": {

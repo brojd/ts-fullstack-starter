@@ -5,11 +5,12 @@
   "main": "app.ts",
   "license": "MIT",
   "scripts": {
-    "serve": "node ./dist/server/src/app.js",
+    "serve": "cross-env NODE_ENV=production node ./dist/server/src/app.js",
     "dev": "cross-env NODE_ENV=development concurrently \"tsc --p ./tsconfig.json -w\" \"nodemon ./dist/server/src/app.js\"",
     "build": "yarn clean && cross-env NODE_ENV=production tsc --p ./tsconfig.json",
     "clean": "rimraf ./dist",
-    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\""
+    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\"",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/body-parser": "1.19.0",
