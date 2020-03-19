@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import { Todo } from '@shared/types/todo';
 import logger from './utils/logger';
+import httpLogger from './middlewares/httpLogger';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 })
 );
+app.use(httpLogger);
 
 app.get('/api/todos', (_req, res) => {
   const todos: Todo[] = [{ id: '1', text: 'todo1' }];
