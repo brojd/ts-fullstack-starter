@@ -6,13 +6,85 @@ Easy to understand and customize to your needs without wasting time for writing 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+---
+
+## Usage
+
+### Quick start
+
+1. Clone / download the repo
+2. `cd ts-fullstack-starter && yarn`
+3. `yarn dev` to start development (see below all available commands)
+
+### Commands
+
+| Command      | Description                                                                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn dev`   | Starts concurrently Webpack Dev Server for serving Client app and runs backend app in development mode. Hot reloading for Client and live reloading for backend is set up. |
+| `yarn build` | Compiles backend app, then prepares frontend bundle and put it in server's public folder to be served. Run it before starting the prod server.                             |
+| `yarn start` | Runs server in production mode                                                                                                                                             |
+| `yarn lint`  | Checks TS compilation and ESLitn errors of Client, Server and Shared parts of your fullstack app                                                                           |
+| `yarn test`  | Runs Jest against Client, Server and Shared parts of your fullstack app                                                                                                    |
+
+### Installing dependencies
+
+Thanks to [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to install dependencies you should just run `yarn` being in the root of the project
+
+### Adding dependencies
+
+In order to add dependency which is:
+
+- client-specific: `cd client && yarn add yourDep`
+- server-specific: `cd server && yarn add yourDep`
+- shared between client and server: `cd shared && yarn add yourDep`
+
+### Git hooks
+
+By default 2 hooks are set up:
+
+- on every commit `prettier` fixes the code style of every staged file
+- on every push `yarn test` and `yarn lint` is triggered to prevent buggy code on your remote
+
+You can always modify it in `package.json -> husky`
+
+### Deployment
+
+- Push repo to your remote server, then run `yarn build && yarn start`
+- Deploying to Heroku: just push your changes `yarn push heroku master`. Heroku will automatically run `yarn build` and then `yarn start`.
+  You can also deploy instantly with:
+
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+### Styling
+
+By default `sass|scss` is supported with or without CSS Modules.
+
+To use CSS Modules create `YourComponent.modules.scss` and import in component:
+
+```
+import styles from './YourComponent.modules.scss';
+...
+<div className={styles.yourClass} />
+
+```
+
+To use global styles create `yourGlobalStyles.scss` file and then import it:
+
+```
+import './yourGlobalStyles.scss';
+```
+
+---
+
 ## Why?
+
+### Background
 
 Nowadays, it's a common choice to use TypeScript on both frontend and backend. What is great about such option is that we can benefit from having one repo, one dev, build process and possibility to share code and types between client and server.
 
 However it takes time to set everything up according to modern approaches. This project aims to provide a robust and flexible boilerplate for everyone who wants to use custom configuration for TS fullstack project.
 
-## General approach
+### General approach
 
 Although there are great ready-to-use tools you can use to start right away with backend or frontend development (like [CRA](https://facebook.github.io/create-react-app/)), Webpack and TypeScript are now well-documented and affordable to set up by your own. This project took direction of custom configuration. Thanks to it, you have full control and your build config can be tailored to what you need exactly.
 
@@ -60,87 +132,33 @@ prettierrc.js (prettier config common for client, server, shared)
 
 ### General
 
-| Name       | Version | Usage        |
-| ---------- | ------- | ------------ |
-| TypeScript |         | JS superset  |
-| ESLint     |         | TS/JS linter |
-| Prettier   |         |
-| Husky      |         |
-| Yarn       |         |
+| Name                                                    | Version | Usage            |
+| ------------------------------------------------------- | ------- | ---------------- |
+| [TypeScript](https://www.typescriptlang.org/index.html) | 3.8.3   | JS superset      |
+| [ESLint](https://eslint.org/)                           | 6.8.0   | TS/JS linter     |
+| [Prettier](https://prettier.io/)                        | 1.19.1  | Code formatter   |
+| [Husky](https://github.com/typicode/husky)              | 4.2.3   | Manage git hooks |
+| [Yarn](https://yarnpkg.com/)                            | 1.19.2  | Package manager  |
 
 ### Client
 
-| Name               | Version | Usage                    |
-| ------------------ | ------- | ------------------------ |
-| Webpack            | 4.42.0  | Module bundler           |
-| Webpack Dev Server | 13.10.3 | Local development server |
-| React              | 16.13.0 | UI Library               |
-| Axios              | 0.19.2  | HTTP client              |
+| Name                                                                   | Version | Usage                    |
+| ---------------------------------------------------------------------- | ------- | ------------------------ |
+| [Webpack](https://webpack.js.org/)                                     | 4.42.0  | Module bundler           |
+| [Webpack Dev Server](https://webpack.js.org/configuration/dev-server/) | 13.10.3 | Local development server |
+| [React](https://pl.reactjs.org/)                                       | 16.13.0 | UI Library               |
+| [Axios](https://github.com/axios/axios)                                | 0.19.2  | HTTP client              |
 
 ### Server
 
-| Name    | Version | Usage |
-| ------- | ------- | ----- |
-| Express |         |       |
-|         |         |       |
-| ..      |         |
-| ..      |         |
-| ..      |         |
+| Name                                            | Version | Usage                                          |
+| ----------------------------------------------- | ------- | ---------------------------------------------- |
+| [Express](https://expressjs.com/)               | 4.17.1  | Node.js framework                              |
+| [Nodemon](https://nodemon.io/)                  | 2.0.2   | Provides live reloading for server development |
+| [Morgan](https://github.com/expressjs/morgan)   | 1.9.1   | HTTP request logger middleware                 |
+| [Winston](https://github.com/winstonjs/winston) | 3.2.1   | Logging library                                |
 
 ---
-
-## Usage
-
-### Quick start
-
-1. Clone / download the repo
-2. `cd ts-fullstack-starter && yarn`
-3. `yarn dev` to start development (see below all available commands)
-
-### Commands
-
-| Command      | Description |
-| ------------ | ----------- |
-| `yarn dev`   | aaa         |
-| `yarn build` | aaa         |
-| `yarn start` | aaa         |
-| `yarn lint`  | aaa         |
-
-### Git hooks
-
-What is triggered when:
-
-### Adding dependencies
-
-In order to add dependency which is:
-
-- client-specific: `cd client && yarn add yourDep`
-- server-specific: `cd server && yarn add yourDep`
-- shared between client and server: `cd shared && yarn add yourDep`
-
-### Deployment
-
-Just run `yarn start` on your remote server. It will build fullstack app and start the server.
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
