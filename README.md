@@ -4,6 +4,8 @@ Simple, modern, fast boilerplate for your next fullstack TS project.
 
 Easy to understand and customize to your needs without wasting time for writing everything from scratch.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Why?
 
 Nowadays, it's a common choice to use TypeScript on both frontend and backend. What is great about such option is that we can benefit from having one repo, one dev, build process and possibility to share code and types between client and server.
