@@ -22,5 +22,5 @@ app.get('/api/todos', (_req, res) => {
   res.send(todos);
 });
 
-const port = 9000;
+const port = process.env.PORT || 9000;
 app.listen(port, () => logger.debug(`Example app listening on port ${port}!`));
