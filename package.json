@@ -2,9 +2,10 @@
   "name": "ts-fullstack-starter",
   "version": "1.0.0",
   "engines": {
-    "node": "12.16.1"
+    "node": "12.16.1",
+    "yarn": "1.19.2"
   },
-  "main": "index.js",
+  "main": "server/dist/server/src/app.js",
   "author": "Dominik Broj",
   "license": "MIT",
   "workspaces": [
