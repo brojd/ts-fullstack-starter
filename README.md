@@ -75,6 +75,22 @@ To use global styles create `yourGlobalStyles.scss` file and then import it:
 import './yourGlobalStyles.scss';
 ```
 
+### Aliases
+
+Aliases are configured. You can use absolute paths, like:
+
+```
+import something from '@shared/utils';
+import something from '@client/utils';
+import something from '@server/utils';
+```
+
+**IMPORTANT NOTE**
+
+Please add this to VS config settings in order to make intellisense working with aliases config:
+
+`"eslint.workingDirectories": ["client", "server", "shared"]`
+
 ---
 
 ## Why?
