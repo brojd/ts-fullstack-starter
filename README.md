@@ -1,10 +1,11 @@
-# ts-fullstack-starter
+<h1 align="center">ts-fullstack-starter</h1>
 
-Simple, modern, fast boilerplate for your next fullstack TS project.
+<p align="center">Simple, modern, fast boilerplate for your next fullstack TS project.<br/>
+Easy to understand and customize to your needs without wasting time for writing everything from scratch.</p>
 
-Easy to understand and customize to your needs without wasting time for writing everything from scratch.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+<p align="center"><a href="https://heroku.com/deploy">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a></p>
 
 ---
 
