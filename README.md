@@ -1,7 +1,7 @@
-<h1 align="center">ts-fullstack-starter</h1>
+<h1 align="center">:palm_tree: :tropical_drink: ts-fullstack-starter :tropical_drink: :palm_tree:</h1>
 
-<p align="center">Simple, modern, fast boilerplate for your next fullstack TS project.<br/>
-Easy to understand and customize to your needs without wasting time for writing everything from scratch.</p>
+<p align="center">:rocket: Simple, modern, fast boilerplate for your next fullstack TS project.<br/>
+Easy to understand and customize to your needs without wasting time for writing everything from scratch. :rocket: </p>
 
 <p align="center"><a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
