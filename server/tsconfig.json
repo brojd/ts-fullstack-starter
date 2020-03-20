@@ -1,9 +1,10 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
+    "outDir": "../dist",
+    "baseUrl": "../",
     "moduleResolution": "node"
   },
-  "include": ["./src/**/*", "../shared/src/**/*"]
+  "references": [{ "path": "../shared" }],
+  "include": ["./src/**/*"]
 }

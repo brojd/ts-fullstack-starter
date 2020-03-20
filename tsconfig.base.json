@@ -3,8 +3,8 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "baseUrl": ".",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "paths": {

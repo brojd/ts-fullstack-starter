@@ -2,7 +2,9 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react",
+    "baseUrl": "../",
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*", "../shared/src/**/*"]
+  "references": [{ "path": "../shared" }],
+  "include": ["./src/**/*"]
 }
