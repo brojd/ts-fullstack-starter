@@ -6,7 +6,7 @@
   "author": "Dominik Broj",
   "license": "MIT",
   "scripts": {
-    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\"",
+    "lint": "tsc --noEmit --composite false && eslint --ext ts \"./src\"",
     "test": "jest"
   },
   "dependencies": {

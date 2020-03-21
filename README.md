@@ -19,13 +19,14 @@ Easy to understand and customize to your needs without wasting time for writing 
 
 ### Commands
 
-| Command      | Description                                                                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `yarn dev`   | Starts concurrently Webpack Dev Server for serving Client app and runs backend app in development mode. Hot reloading for Client and live reloading for backend is set up. |
-| `yarn build` | Compiles backend app, then prepares frontend bundle and put it in server's public folder to be served. Run it before starting the prod server.                             |
-| `yarn start` | Runs server in production mode                                                                                                                                             |
-| `yarn lint`  | Checks TS compilation and ESLint errors of Client, Server and Shared parts of your fullstack app                                                                           |
-| `yarn test`  | Runs Jest against Client, Server and Shared parts of your fullstack app                                                                                                    |
+| Command           | Description                                                                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn dev`        | Starts concurrently Webpack Dev Server for serving Client app (on port 3000) and runs backend app in development mode (on port 9000). Hot reloading for Client and live reloading for backend is set up. |
+| `yarn build`      | Compiles backend app, then prepares frontend bundle and put it in server's public folder to be served. Run it before starting the prod server.                                                           |
+| `yarn start`      | Runs server in production mode                                                                                                                                                                           |
+| `yarn lint`       | Checks TS compilation and ESLint errors of Client, Server and Shared parts of your fullstack app                                                                                                         |
+| `yarn test`       | Runs Jest against Client, Server and Shared parts of your fullstack app                                                                                                                                  |
+| `yarn clean-deps` | Removes all dependencies at once                                                                                                                                                                         |
 
 ### Installing dependencies
 
@@ -60,10 +61,10 @@ You can always modify it in `package.json -> husky`
 
 By default `sass|scss` is supported with or without CSS Modules.
 
-To use CSS Modules create `YourComponent.modules.scss` and import in component:
+To use CSS Modules create `YourComponent.module.scss` and import in component:
 
 ```
-import styles from './YourComponent.modules.scss';
+import styles from './YourComponent.module.scss';
 ...
 <div className={styles.yourClass} />
 
@@ -126,7 +127,6 @@ client
    |__tsconfig.json (client-specific tsconfig)
 server
    |--src (server-specific app code)
-   |--dist (transpiled server app + client static files - ready to put on server and start)
    |--package.json (server-specific npm scripts and dependencies)
    |--eslintrc.js (server-specific eslint config)
    |--jest.config.js (client-specific jest config)
@@ -137,6 +137,9 @@ shared
    |--eslintrc.js (shared-specific eslint config)
    |--jest.config.js (client-specific jest config)
    |__tsconfig.json (shared-specific tsconfig)
+dist (transpiled server app + client static files - ready to put on server and start)
+   |--app.js
+   |__public (Folder for compiled frontend app - static files server by app.js)
 package.json (main npm scripts, husky hooks, yarn workspaces)
 .eslintrc.base.js (eslint config common for client, server, shared)
 .tsconfig.base.json (tsconfig common for client, server, shared)

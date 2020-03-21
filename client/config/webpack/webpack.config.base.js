@@ -23,6 +23,11 @@ module.exports = {
       },
       {
         test: /\.(scss|sass)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /\.module\.(scss|sass)$/
+      },
+      {
+        test: /\.module\.(scss|sass)$/,
         use: [
           { loader: 'style-loader' },
           {
@@ -34,21 +39,7 @@ module.exports = {
           {
             loader: 'sass-loader'
           }
-        ],
-        include: [paths.src]
-      },
-      {
-        test: /\.module\.(scss|sass)$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ],
-        include: [paths.src]
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg|woff|woff2|eot|ttf|otf)$/,
