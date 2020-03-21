@@ -5,11 +5,11 @@
   "main": "app.ts",
   "license": "MIT",
   "scripts": {
-    "serve": "cross-env NODE_ENV=production node ./dist/server/src/app.js",
-    "dev": "cross-env NODE_ENV=development concurrently \"tsc --p ./tsconfig.json -w\" \"nodemon ./dist/server/src/app.js\"",
-    "build": "yarn clean && cross-env NODE_ENV=production tsc --p ./tsconfig.json",
-    "clean": "rimraf ./dist",
-    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts \"./src\"",
+    "serve": "cross-env NODE_ENV=production node ../dist/app.js",
+    "dev": "cross-env NODE_ENV=development concurrently \"tsc -w\" \"nodemon ../dist/app.js\"",
+    "build": "yarn clean && cross-env NODE_ENV=production tsc -b",
+    "clean": "rimraf ../dist",
+    "lint": "tsc --noEmit && eslint --ext ts \"./src\"",
     "test": "jest"
   },
   "devDependencies": {
@@ -25,14 +25,5 @@
     "morgan": "1.9.1",
     "shared": "1.0.0",
     "winston": "3.2.1"
-  },
-  "workspaces": {
-    "nohoist": [
-      "module-alias"
-    ]
-  },
-  "_moduleAliases": {
-    "@shared": "./dist/shared/src",
-    "@server": "./dist/server/src"
   }
 }

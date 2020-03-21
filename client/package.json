@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack/webpack.config.dev.js",
     "build": "yarn clean && cross-env NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js",
-    "clean": "rimraf ../server/dist/server/src/public",
-    "lint": "tsc --p ./tsconfig.json --noEmit && eslint --ext ts --ext tsx \"./src\"",
+    "clean": "rimraf ../dist/public",
+    "lint": "tsc --noEmit && eslint --ext ts --ext tsx \"./src\"",
     "test": "jest"
   },
   "devDependencies": {

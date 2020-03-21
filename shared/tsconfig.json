@@ -1,4 +1,9 @@
 {
   "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../dist/shared",
+    "baseUrl": "../",
+    "composite": true
+  },
   "include": ["./src/**/*"]
 }

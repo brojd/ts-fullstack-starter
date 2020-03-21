@@ -5,7 +5,11 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json'
+    project: [
+      '../server/tsconfig.json',
+      '../client/tsconfig.json',
+      '../shared/tsconfig.json'
+    ]
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [

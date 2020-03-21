@@ -5,7 +5,7 @@
     "node": "12.16.1",
     "yarn": "1.19.2"
   },
-  "main": "server/dist/server/src/app.js",
+  "main": "index.js",
   "author": "Dominik Broj",
   "license": "MIT",
   "workspaces": [
@@ -28,13 +28,17 @@
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1"
   },
+  "dependencies": {
+    "concurrently": "5.1.0"
+  },
+  "_moduleAliases": {
+    "@shared": "dist/shared/src",
+    "@server": "dist"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
       "pre-push": "yarn lint && yarn test"
     }
-  },
-  "dependencies": {
-    "concurrently": "5.1.0"
   }
 }

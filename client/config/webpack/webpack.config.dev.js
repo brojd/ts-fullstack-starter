@@ -20,10 +20,9 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.modules\.(scss|sass)$/,
+        test: /\.module\.(scss|sass)$/,
         loader: 'typed-css-modules-loader',
-        enforce: 'pre',
-        include: paths.src
+        enforce: 'pre'
       }
     ]
   }
