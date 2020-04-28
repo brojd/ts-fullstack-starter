@@ -5,7 +5,7 @@ const { colors: baseColors } = base;
 
 const light: ThemeColors = {
   ...baseColors,
-  primary: baseColors.red,
+  primary: baseColors.yellow,
   secondary: baseColors.green,
   tertiary: baseColors.cyan,
   positive: baseColors.green,

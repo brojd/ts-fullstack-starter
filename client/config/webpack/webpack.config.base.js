@@ -50,7 +50,8 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@shared': paths.shared
+      '@shared': paths.shared,
+      '@client': paths.src
     }
   },
   plugins: [

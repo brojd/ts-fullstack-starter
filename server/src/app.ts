@@ -2,9 +2,9 @@ import 'module-alias/register';
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import { Todo } from '@shared/types/todo';
 import logger from './utils/logger';
 import httpLogger from './middlewares/httpLogger';
+import router from './routes/routes';
 
 const app = express();
 
@@ -16,11 +16,7 @@ app.use(
 );
 app.use(httpLogger);
 
-app.get('/api/todos', (_req, res) => {
-  const todos: Todo[] = [{ id: '1', text: 'todo1' }];
-  logger.debug('aaa');
-  res.send(todos);
-});
+app.use('/api', router);
 
 const port = process.env.PORT || 9000;
 app.listen(port, () => logger.debug(`Example app listening on port ${port}!`));
