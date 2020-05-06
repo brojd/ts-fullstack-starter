@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { Box, Text, Heading } from '@chakra-ui/core';
-import styles from '@client/App/App.module.scss';
+import styles from './Home.module.scss';
+import './Home.global.scss';
 
 const StyledDiv = styled.div`
   color: red;
@@ -10,7 +11,7 @@ const StyledDiv = styled.div`
 
 const Home: FC = () => {
   return (
-    <Box marginTop={16} textAlign="center">
+    <Box marginTop={16} textAlign="center" className={styles.root}>
       <Heading as="h2" fontSize="2rem" marginBottom={8}>
         How to style?
       </Heading>

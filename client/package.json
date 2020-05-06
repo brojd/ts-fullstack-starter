@@ -15,7 +15,9 @@
     "@types/axios": "^0.14.0",
     "@types/react": "16.9.23",
     "@types/react-dom": "16.9.5",
+    "@types/react-redux": "7.1.7",
     "@types/react-router-dom": "5.1.5",
+    "@types/redux": "3.6.0",
     "@typescript-eslint/eslint-plugin": "2.22.0",
     "@typescript-eslint/parser": "2.22.0",
     "babel-eslint": "^10.1.0",
@@ -45,11 +47,14 @@
     "@chakra-ui/core": "0.7.0",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
+    "@reduxjs/toolkit": "1.3.5",
     "axios": "0.19.2",
     "emotion-theming": "10.0.27",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "5.1.2",
+    "redux": "4.0.5",
     "shared": "1.0.0"
   }
 }
