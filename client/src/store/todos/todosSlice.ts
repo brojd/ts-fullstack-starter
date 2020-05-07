@@ -1,16 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '@shared/types/todo';
+import { createAsyncAction } from '@client/utils/store';
 
-type TodosSlice = Todo[];
+const NAMESPACE = 'TODOS';
 
-const initialState: TodosSlice = [];
+type TodosState = Todo[];
 
+export const fetchTodosAsyncAction = createAsyncAction<undefined, Todo[]>(
+  `${NAMESPACE}/FETCH_TODOS`
+);
+
+const initialState: TodosState = [];
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
-  reducers: {
-    addTodo: state => [...state, { id: 'a', text: 'bb' }]
-  }
+  reducers: {},
+  extraReducers: builder =>
+    builder
+      .addCase(fetchTodosAsyncAction.started, state => state)
+      .addCase(fetchTodosAsyncAction.done, (_state, action) => action.payload)
 });
 
 export default todosSlice;

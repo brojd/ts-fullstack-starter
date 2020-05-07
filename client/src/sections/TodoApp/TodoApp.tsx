@@ -1,13 +1,13 @@
 import React, { FC, useEffect } from 'react';
-import { getTodos } from '@client/services/todos';
-import { dummyConsoleLog } from '@shared/utils/console';
+import { useDispatch } from 'react-redux';
+import { fetchTodosAsyncAction } from '@client/store/todos/todosSlice';
 
 const TodoApp: FC = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getTodos().then(({ data: todos }) => {
-      dummyConsoleLog(todos[0].text);
-    });
-  }, []);
+    dispatch(fetchTodosAsyncAction());
+  }, [dispatch]);
 
   return <>todo app route</>;
 };

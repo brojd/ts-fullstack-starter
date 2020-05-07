@@ -17,7 +17,7 @@ const ThemeSetter: FC = () => {
       right={2}
       bg="tertiary.500"
     >
-      <Text color="white">
+      <Text color="white" as="span">
         Current color mode: <Text fontWeight="bold">{colorMode}</Text>
       </Text>
       <div>
