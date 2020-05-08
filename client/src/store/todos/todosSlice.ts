@@ -18,7 +18,9 @@ const todosSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(fetchTodosAsyncAction.started, state => state)
-      .addCase(fetchTodosAsyncAction.done, (_state, action) => action.payload)
+      .addCase(fetchTodosAsyncAction.done, (_state, action) => [
+        ...action.payload
+      ])
 });
 
 export default todosSlice;

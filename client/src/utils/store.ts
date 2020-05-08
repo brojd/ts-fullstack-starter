@@ -1,9 +1,9 @@
-import { createAction } from '@reduxjs/toolkit';
+import { createAction, PayloadActionCreator } from '@reduxjs/toolkit';
 
-interface AsyncActions {
-  started?: ReturnType<typeof createAction>;
-  failed?: ReturnType<typeof createAction>;
-  done?: ReturnType<typeof createAction>;
+interface AsyncActions<RequestPayload, ResponsePayload> {
+  started?: PayloadActionCreator<RequestPayload>;
+  failed?: PayloadActionCreator;
+  done?: PayloadActionCreator<ResponsePayload>;
 }
 
 export const createAsyncAction = <
@@ -12,9 +12,8 @@ export const createAsyncAction = <
 >(
   name: string
 ) => {
-  const action: ReturnType<typeof createAction> & AsyncActions = createAction(
-    name
-  );
+  const action: ReturnType<typeof createAction> &
+    AsyncActions<RequestPayload, ResponsePayload> = createAction(name);
   action.started = createAction<RequestPayload>(`${name}_STARTED`);
   action.failed = createAction(`${name}_FAILED`);
   action.done = createAction<ResponsePayload>(`${name}_DONE`);
