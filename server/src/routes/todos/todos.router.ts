@@ -6,7 +6,6 @@ const router = express.Router();
 let todos: Todo[] = [{ id: 'firstId', text: 'firstTodoText' }];
 
 router.get('/', (_req, res) => {
-  console.log('aaa');
   res.send(todos);
 });
 
