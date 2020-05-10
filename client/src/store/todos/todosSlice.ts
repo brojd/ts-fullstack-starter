@@ -1,26 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '@shared/types/todo';
-import { createAsyncAction } from '@client/utils/store';
+import { createAsyncAction } from '@client/store/store.utils';
 
-const NAMESPACE = 'TODOS';
+const NAME = 'TODOS';
 
 type TodosState = Todo[];
 
 export const fetchTodosAsyncAction = createAsyncAction<undefined, Todo[]>(
-  `${NAMESPACE}/FETCH_TODOS`
+  `${NAME}/FETCH_TODOS`,
+  {
+    // You can set it to true to prevent automatic setting loading states
+    ignored: false
+  }
 );
 
 const initialState: TodosState = [];
 const todosSlice = createSlice({
-  name: 'todos',
+  name: NAME,
   initialState,
   reducers: {},
   extraReducers: builder =>
-    builder
-      .addCase(fetchTodosAsyncAction.started, state => state)
-      .addCase(fetchTodosAsyncAction.done, (_state, action) => [
-        ...action.payload
-      ])
+    builder.addCase(fetchTodosAsyncAction.done, (_state, action) => [
+      ...action.payload
+    ])
 });
 
 export default todosSlice;

@@ -6,7 +6,7 @@ const router = express.Router();
 let todos: Todo[] = [{ id: 'firstId', text: 'firstTodoText' }];
 
 router.get('/', (_req, res) => {
-  res.send(todos);
+  setTimeout(() => res.send(todos), 4000);
 });
 
 router.post('/', (req, res) => {
