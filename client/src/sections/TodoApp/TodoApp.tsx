@@ -1,6 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import { fetchTodosAsyncAction } from '@client/store/todos/todosSlice';
+import todosSlice, {
+  fetchTodosAsyncAction
+} from '@client/store/todos/todosSlice';
 import { getTodos } from '@client/store/todos/todosSelectors';
 import { getIsLoading } from '@client/store/loading/loadingSelectors';
 import { RootState } from '@client/store/store';
@@ -15,6 +17,9 @@ const TodoApp: FC = () => {
 
   useEffect(() => {
     dispatch(fetchTodosAsyncAction());
+    return () => {
+      dispatch(todosSlice.actions.reset());
+    };
   }, [dispatch]);
 
   return (

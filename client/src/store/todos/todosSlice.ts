@@ -18,7 +18,9 @@ const initialState: TodosState = [];
 const todosSlice = createSlice({
   name: NAME,
   initialState,
-  reducers: {},
+  reducers: {
+    reset: () => initialState
+  },
   extraReducers: builder =>
     builder.addCase(fetchTodosAsyncAction.done, (_state, action) => [
       ...action.payload
