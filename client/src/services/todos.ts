@@ -1,7 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
 import { Todo } from '@shared/types/todo';
+import client from './client';
 
-export const fetchTodos = () =>
-  axios
-    .get<undefined, AxiosResponse<Todo[]>>('/api/todos')
-    .then(({ data }) => data);
+export const fetchTodos = () => client.get<undefined, Todo[]>('/todos');

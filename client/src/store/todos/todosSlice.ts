@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '@shared/types/todo';
-import { createAsyncAction } from '@client/store/store.utils';
+import { createAsyncAction } from '@client/utils/store.ts';
 
 const NAME = 'TODOS';
 

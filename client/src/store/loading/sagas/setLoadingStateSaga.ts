@@ -7,7 +7,7 @@ const loadingStateRegex = /(STARTED|FAILED|DONE)$/;
 function* setLoadingWorker(action: ActionWithOptionalMeta) {
   const [loadingState] = action.type.match(loadingStateRegex);
   const [name] = action.type.split(`_${loadingState}`);
-  if (!action.meta.ignored) {
+  if (!action?.meta?.ignored) {
     yield put(setLoadingAction({ name, loadingState }));
   }
 }

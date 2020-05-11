@@ -33,7 +33,12 @@ export const createAsyncAction = <
     `${name}_STARTED`,
     (payload: RequestPayload) => ({ payload, meta })
   );
-  action.failed = createAction(`${name}_FAILED`);
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  action.failed = createAction<PrepareAction<any>>(
+    `${name}_FAILED`,
+    (error: any) => ({ payload: error, error })
+  );
+  /* eslint-enable */
   action.done = createAction<PrepareAction<ResponsePayload>>(
     `${name}_DONE`,
     (payload: ResponsePayload) => ({ payload, meta })
