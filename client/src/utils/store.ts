@@ -1,30 +1,28 @@
 import { createAction, PrepareAction } from '@reduxjs/toolkit';
-import { AsyncAction } from '@client/types/store.types';
+import { AsyncAction, ActionWithOptionalMeta } from '@client/types/store.types';
 
 export const createAsyncAction = <
   RequestPayload = undefined,
   ResponsePayload = undefined
 >(
-  name: string,
-  meta?: {
-    ignored?: boolean;
-  }
+  type: ActionWithOptionalMeta['type'],
+  meta?: ActionWithOptionalMeta['meta']
 ) => {
   const action: AsyncAction<RequestPayload, ResponsePayload> = createAction<
-    RequestPayload
-  >(name);
+    PrepareAction<RequestPayload>
+  >(type, (payload: RequestPayload) => ({ payload, meta }));
   action.started = createAction<PrepareAction<RequestPayload>>(
-    `${name}_STARTED`,
+    `${type}_STARTED`,
     (payload: RequestPayload) => ({ payload, meta })
   );
   /* eslint-disable @typescript-eslint/no-explicit-any */
   action.failed = createAction<PrepareAction<any>>(
-    `${name}_FAILED`,
-    (error: any) => ({ payload: error, error })
+    `${type}_FAILED`,
+    (error: any) => ({ payload: error, error, meta })
   );
   /* eslint-enable */
   action.done = createAction<PrepareAction<ResponsePayload>>(
-    `${name}_DONE`,
+    `${type}_DONE`,
     (payload: ResponsePayload) => ({ payload, meta })
   );
   return action;

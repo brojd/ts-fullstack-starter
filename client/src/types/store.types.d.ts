@@ -27,8 +27,7 @@ type AsyncActions<RequestPayload, ResponsePayload> = {
   >;
 };
 
-export type AsyncAction<RequestPayload, ResponsePayload> = PayloadActionCreator<
-  RequestPayload,
-  string
+export type AsyncAction<RequestPayload, ResponsePayload> = PrepareAction<
+  RequestPayload
 > &
   AsyncActions<RequestPayload, ResponsePayload>;
