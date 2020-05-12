@@ -16,7 +16,7 @@ export const makeDefaultAsyncWorker = <
 }) =>
   function*(action: ActionWithOptionalPayload) {
     try {
-      yield put(asyncAction.started());
+      yield put(asyncAction.started(action.payload));
       const data = yield call(apiCall, action.payload);
       yield put(asyncAction.done(data));
     } catch (e) {

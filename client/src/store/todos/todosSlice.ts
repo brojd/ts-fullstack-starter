@@ -4,23 +4,29 @@ import { createAsyncAction } from '@client/utils/store.ts';
 
 const NAME = 'TODOS';
 
-type TodosState = Todo[];
+type TodosState = {
+  todos: Todo[];
+  currentlyDeletingTodoId?: string;
+};
 
 export const fetchTodosAsyncAction = createAsyncAction<undefined, Todo[]>(
-  `${NAME}/FETCH_TODOS`,
-  {
-    // You can set it to true to prevent automatic setting loading states
-    ignored: false
-  }
+  `${NAME}/FETCH_TODOS`
 );
 export const addTodoAsyncAction = createAsyncAction<Todo, Todo[]>(
   `${NAME}/ADD_TODO`
 );
 export const deleteTodoAsyncAction = createAsyncAction<string, Todo[]>(
-  `${NAME}/DELETE_TODO`
+  `${NAME}/DELETE_TODO`,
+  {
+    // loading state is manually handled in reducer
+    ignored: true
+  }
 );
 
-const initialState: TodosState = [];
+const initialState: TodosState = {
+  todos: [],
+  currentlyDeletingTodoId: undefined
+};
 const todosSlice = createSlice({
   name: NAME,
   initialState,
@@ -29,13 +35,27 @@ const todosSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchTodosAsyncAction.done, (_state, action) => [
-        ...action.payload
-      ])
-      .addCase(addTodoAsyncAction.done, (_state, action) => [...action.payload])
-      .addCase(deleteTodoAsyncAction.done, (_state, action) => [
-        ...action.payload
-      ])
+      .addCase(fetchTodosAsyncAction.done, (state, action) => ({
+        ...state,
+        todos: action.payload
+      }))
+      .addCase(addTodoAsyncAction.done, (state, action) => ({
+        ...state,
+        todos: action.payload
+      }))
+      .addCase(deleteTodoAsyncAction.started, (state, action) => ({
+        ...state,
+        currentlyDeletingTodoId: action.payload
+      }))
+      .addCase(deleteTodoAsyncAction.failed, state => ({
+        ...state,
+        currentlyDeletingTodoId: undefined
+      }))
+      .addCase(deleteTodoAsyncAction.done, (state, action) => ({
+        ...state,
+        todos: action.payload,
+        currentlyDeletingTodoId: undefined
+      }))
 });
 
 export default todosSlice;

@@ -38,6 +38,7 @@ const AddTodo: FC = () => {
         icon="add"
         onClick={onAddTodo}
         isLoading={isLoading}
+        isDisabled={!newTodo}
       />
     </Flex>
   );

@@ -3,8 +3,7 @@ import { Todo } from '@shared/types/todo';
 import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTodoAsyncAction } from '@client/store/todos/todosSlice';
-import { getIsLoading } from '@client/store/loading/loadingSelectors';
-import { RootState } from '@client/store/store';
+import { getCurrentlyDeletingTodoId } from '@client/store/todos/todosSelectors';
 
 interface TodoProps {
   todo: Todo;
@@ -12,9 +11,7 @@ interface TodoProps {
 
 const TodoItem: FC<TodoProps> = ({ todo }) => {
   const dispatch = useDispatch();
-  const isLoading = useSelector((state: RootState) =>
-    getIsLoading(state, deleteTodoAsyncAction.type)
-  );
+  const isLoading = useSelector(getCurrentlyDeletingTodoId) === todo.id;
 
   const onDeleteClick = useCallback(() => {
     dispatch(deleteTodoAsyncAction(todo.id));
