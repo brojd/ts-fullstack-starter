@@ -11,7 +11,13 @@ const Layout: FC = ({ children }) => {
     <WithColorModeContext>
       <Theme>
         <CSSReset />
-        <Box bg="secondary.400" h="100vh" color="text.500">
+        <Box
+          bg="secondary.400"
+          color="text.500"
+          pos="relative"
+          minH="100vh"
+          pb={4}
+        >
           <Header />
           <ThemeSetter />
           {children}

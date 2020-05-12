@@ -1,5 +1,5 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import { ActionWithOptionalMeta } from '@client/store/store.types';
+import { ActionWithOptionalMeta } from '@client/types/store.types';
 import loadingSlice from '../loadingSlice';
 
 const loadingStateRegex = /(STARTED|FAILED|DONE)$/;

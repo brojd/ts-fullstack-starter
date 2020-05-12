@@ -13,6 +13,12 @@ export const fetchTodosAsyncAction = createAsyncAction<undefined, Todo[]>(
     ignored: false
   }
 );
+export const addTodoAsyncAction = createAsyncAction<Todo, Todo[]>(
+  `${NAME}/ADD_TODO`
+);
+export const deleteTodoAsyncAction = createAsyncAction<string, Todo[]>(
+  `${NAME}/DELETE_TODO`
+);
 
 const initialState: TodosState = [];
 const todosSlice = createSlice({
@@ -22,9 +28,14 @@ const todosSlice = createSlice({
     reset: () => initialState
   },
   extraReducers: builder =>
-    builder.addCase(fetchTodosAsyncAction.done, (_state, action) => [
-      ...action.payload
-    ])
+    builder
+      .addCase(fetchTodosAsyncAction.done, (_state, action) => [
+        ...action.payload
+      ])
+      .addCase(addTodoAsyncAction.done, (_state, action) => [...action.payload])
+      .addCase(deleteTodoAsyncAction.done, (_state, action) => [
+        ...action.payload
+      ])
 });
 
 export default todosSlice;

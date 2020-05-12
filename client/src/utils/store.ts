@@ -1,22 +1,5 @@
-import {
-  createAction,
-  PayloadActionCreator,
-  PrepareAction
-} from '@reduxjs/toolkit';
-
-interface AsyncActions<RequestPayload, ResponsePayload> {
-  started?: PayloadActionCreator<
-    RequestPayload,
-    string,
-    PrepareAction<RequestPayload>
-  >;
-  failed?: PayloadActionCreator<undefined>;
-  done?: PayloadActionCreator<
-    ResponsePayload,
-    string,
-    PrepareAction<ResponsePayload>
-  >;
-}
+import { createAction, PrepareAction } from '@reduxjs/toolkit';
+import { AsyncAction } from '@client/types/store.types';
 
 export const createAsyncAction = <
   RequestPayload = undefined,
@@ -27,8 +10,9 @@ export const createAsyncAction = <
     ignored?: boolean;
   }
 ) => {
-  const action: ReturnType<typeof createAction> &
-    AsyncActions<RequestPayload, ResponsePayload> = createAction(name);
+  const action: AsyncAction<RequestPayload, ResponsePayload> = createAction<
+    RequestPayload
+  >(name);
   action.started = createAction<PrepareAction<RequestPayload>>(
     `${name}_STARTED`,
     (payload: RequestPayload) => ({ payload, meta })

@@ -8,7 +8,7 @@ const light: ThemeColors = {
   primary: baseColors.yellow,
   secondary: baseColors.green,
   tertiary: baseColors.cyan,
-  positive: baseColors.green,
+  positive: baseColors.telegram,
   neutral: baseColors.gray,
   warning: baseColors.orange,
   negative: baseColors.red,

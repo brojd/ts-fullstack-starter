@@ -3,10 +3,10 @@ import { Todo } from '@shared/types/todo';
 
 const router = express.Router();
 
-let todos: Todo[] = [{ id: 'firstId', text: 'firstTodoText' }];
+let todos: Todo[] = [];
 
 router.get('/', (_req, res) => {
-  setTimeout(() => res.send(todos), 2000);
+  res.send(todos);
 });
 
 router.post('/', (req, res) => {

@@ -1,17 +1,23 @@
-import { createAsyncAction } from '@client/utils/store';
 import { put, call } from 'redux-saga/effects';
+import {
+  AsyncAction,
+  ActionWithOptionalPayload
+} from '@client/types/store.types';
 
-export const makeDefaultAsyncWorker = ({
+export const makeDefaultAsyncWorker = <
+  RequestPayload = undefined,
+  ResponsePayload = undefined
+>({
   asyncAction,
   apiCall
 }: {
-  asyncAction: ReturnType<typeof createAsyncAction>;
-  apiCall: () => Promise<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  asyncAction: AsyncAction<RequestPayload, ResponsePayload>;
+  apiCall: (payload?: RequestPayload) => Promise<ResponsePayload>;
 }) =>
-  function*() {
+  function*(action: ActionWithOptionalPayload) {
     try {
       yield put(asyncAction.started());
-      const data = yield call(apiCall);
+      const data = yield call(apiCall, action.payload);
       yield put(asyncAction.done(data));
     } catch (e) {
       yield put(asyncAction.failed(e));

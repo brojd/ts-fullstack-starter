@@ -8,6 +8,6 @@ const worker = makeDefaultAsyncWorker({
   apiCall: fetchTodos
 });
 
-export default function* fetchTodosAsyncActionSaga() {
+export default function* fetchTodosSaga() {
   yield takeEvery(fetchTodosAsyncAction.type, worker);
 }
