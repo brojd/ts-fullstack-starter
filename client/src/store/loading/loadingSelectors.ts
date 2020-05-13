@@ -1,12 +1,15 @@
 import { RootState } from '../store';
 import { createSelector } from '@reduxjs/toolkit';
+import { LoadingStatus } from '@client/types/app.types';
 
-export const getLoadingState = (state: RootState, actionName: string) =>
-  state.loading?.[actionName];
+export const getLoadingState = (
+  state: RootState,
+  actionName: string
+): LoadingStatus => state.loading?.[actionName];
 
 export const getIsLoading = createSelector(
   getLoadingState,
-  loadingState => loadingState === 'STARTED'
+  loadingState => loadingState === LoadingStatus.STARTED
 );
 
 export const getIsDone = createSelector(

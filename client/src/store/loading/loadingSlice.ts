@@ -1,15 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { LoadingStatus } from '@client/types/app.types';
 
 const NAME = 'LOADING';
 
-type LoadingState = { [key: string]: string };
+type LoadingState = { [key: string]: LoadingStatus };
 
 const initialState: LoadingState = {};
 const loadingSlice = createSlice({
   name: NAME,
   initialState,
   reducers: {
-    setLoadingState: (state, { payload }) => ({
+    setLoadingState: (
+      state,
+      { payload }: PayloadAction<{ name: string; loadingState: LoadingStatus }>
+    ) => ({
       ...state,
       [payload.name]: payload.loadingState
     }),
