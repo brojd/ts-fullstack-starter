@@ -1,4 +1,10 @@
-import React, { FC, useState, useCallback, ChangeEvent } from 'react';
+import React, {
+  FC,
+  useState,
+  useCallback,
+  ChangeEvent,
+  KeyboardEvent
+} from 'react';
 import { IconButton, Input, Flex } from '@chakra-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodoAsyncAction } from '@client/store/todos/todosSlice';
@@ -23,12 +29,22 @@ const AddTodo: FC = () => {
     updateNewTodo('');
   }, [dispatch, newTodo]);
 
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        onAddTodo();
+      }
+    },
+    [onAddTodo]
+  );
+
   return (
     <Flex justify="space-between">
       <Input
         placeholder="Add todo"
         w="90%"
         onChange={onInputChange}
+        onKeyDown={onKeyDown}
         value={newTodo}
         color="black"
       />

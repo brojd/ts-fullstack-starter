@@ -15,6 +15,9 @@ export const fetchTodosAsyncAction = createAsyncAction<undefined, Todo[]>(
 export const addTodoAsyncAction = createAsyncAction<Todo, Todo[]>(
   `${NAME}/ADD_TODO`
 );
+export const editTodoAsyncAction = createAsyncAction<Todo, Todo[]>(
+  `${NAME}/EDIT_TODO`
+);
 export const deleteTodoAsyncAction = createAsyncAction<string, Todo[]>(
   `${NAME}/DELETE_TODO`,
   {
@@ -40,6 +43,10 @@ const todosSlice = createSlice({
         todos: action.payload
       }))
       .addCase(addTodoAsyncAction.done, (state, action) => ({
+        ...state,
+        todos: action.payload
+      }))
+      .addCase(editTodoAsyncAction.done, (state, action) => ({
         ...state,
         todos: action.payload
       }))

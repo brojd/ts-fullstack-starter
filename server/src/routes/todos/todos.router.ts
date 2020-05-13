@@ -21,7 +21,8 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const updatedTodo = req.body;
-  todos = todos.map(todo => (todo.id === updatedTodo.id ? updatedTodo : todo));
+  const todoId = req.params.id;
+  todos = todos.map(todo => (todo.id === todoId ? updatedTodo : todo));
   res.send(todos);
 });
 
