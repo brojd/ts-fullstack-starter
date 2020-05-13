@@ -26,7 +26,7 @@ const TodoList: FC = () => {
   }, [dispatch]);
 
   return (
-    <Loading isLoading={isLoading}>
+    <Loading isLoading={isLoading} timeToWaitBeforeShowing={0}>
       {todos.length
         ? todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
         : 'No todos yet'}
