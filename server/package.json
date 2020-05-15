@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "cross-env NODE_ENV=production node ../dist/app.js",
-    "dev": "cross-env NODE_ENV=development concurrently \"tsc -w\" \"nodemon ../dist/app.js\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"tsc -w\" \"nodemon --watch ../dist ../dist/app.js",
     "build": "yarn clean && cross-env NODE_ENV=production tsc -b",
     "clean": "rimraf ../dist",
     "lint": "tsc --noEmit && eslint --ext ts \"./src\"",

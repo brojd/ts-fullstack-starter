@@ -57,6 +57,16 @@ You can always modify it in `package.json -> husky`
 
   [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+### :exclamation: Extended version of Client example :exclamation:
+
+If you're interested in a more detailed example of FE app, don't hesitate to review `todo-app` branch.
+
+What's included:
+
+- [Redux](https://redux.js.org/), [Redux-Saga](https://redux-saga.js.org/), [React-Router](https://reacttraining.com/react-router/web/guides/quick-start), [ChakraUI](https://chakra-ui.com/getting-started)
+- Exemplary todo app
+- :muscle: Some neat features like: support for unlimited themes, automatic loading states for async actions, handy `<Loading />` component with conditional delayed reaction
+
 ### Styling
 
 By default `sass|scss` is supported with or without CSS Modules.
