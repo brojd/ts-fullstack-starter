@@ -3,7 +3,7 @@ import base from '../base';
 
 const { colors: baseColors } = base;
 
-const light: ThemeColors = {
+const alternative: ThemeColors = {
   ...baseColors,
   primary: baseColors.yellow,
   secondary: baseColors.green,
@@ -16,4 +16,4 @@ const light: ThemeColors = {
   textOpposite: baseColors.blackHues
 };
 
-export default light;
+export default alternative;
