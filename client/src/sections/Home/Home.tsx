@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import { Box, Text, Heading } from '@chakra-ui/core';
+import { Box, Text, Heading, Flex } from '@chakra-ui/core';
 import styles from './Home.module.scss';
 import './Home.global.scss';
 
@@ -21,6 +21,19 @@ const Home: FC = () => {
       <StyledDiv>But you can use Styled Components too</StyledDiv>
       <p className={styles.purple}>...or CSS Modules</p>
       <p className="blue">...or standard global classes</p>
+      <Box my={24}>
+        <Heading as="h2" mb={8}>
+          One-click deployment
+        </Heading>
+        <Flex justify="center">
+          <a href="https://heroku.com/deploy?template=https://github.com/brojd/ts-fullstack-starter/tree/todo-app">
+            <img
+              src="https://www.herokucdn.com/deploy/button.svg"
+              alt="Deploy"
+            />
+          </a>
+        </Flex>
+      </Box>
     </Box>
   );
 };

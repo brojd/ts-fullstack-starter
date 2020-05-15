@@ -1,7 +1,7 @@
 {
   "name": "ts-fullstack-starter",
   "description": "Simple, modern, fast boilerplate for your next fullstack TS project",
-  "repository": "https://github.com/brojd/ts-fullstack-starter",
+  "repository": "https://github.com/brojd/ts-fullstack-starter/tree/todo-app",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["node", "express", "typescript", "fullstack", "react"]
 }
