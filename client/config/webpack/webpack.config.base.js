@@ -11,20 +11,27 @@ module.exports = {
       {
         enforce: 'pre',
         test: /\.(ts|tsx)$/,
+        include: [paths.src, paths.shared],
         exclude: /node_modules/,
         use: 'eslint-loader'
       },
       {
         test: /\.tsx?$/,
+        include: [paths.src, paths.shared],
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            experimentalWatchApi: true
+          }
         }
       },
       {
         test: /\.(scss|sass)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /\.module\.(scss|sass)$/
+        include: paths.src,
+        exclude: [/\.module\.(scss|sass)$/, /node_modules/]
       },
       {
         test: /\.module\.(scss|sass)$/,
@@ -39,11 +46,15 @@ module.exports = {
           {
             loader: 'sass-loader'
           }
-        ]
+        ],
+        include: paths.src,
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|svg|woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
+        include: paths.src,
+        exclude: /node_modules/
       }
     ]
   },

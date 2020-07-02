@@ -22,7 +22,9 @@ module.exports = merge(baseConfig, {
       {
         test: /\.module\.(scss|sass)$/,
         loader: 'typed-css-modules-loader',
-        enforce: 'pre'
+        enforce: 'pre',
+        include: paths.src,
+        exclude: /node_modules/
       }
     ]
   }
